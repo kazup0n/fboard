@@ -27,7 +27,8 @@
 		var synthes = new SpeechSynthesisUtterance(msg);
 		synthes.lang = "ja-JP";
 		synthes.volume = 5;
-		speechSynthesis.speak( synthes );
+		speechSynthesis.speak(synthes);
+		$('#messages').append('<li>' + msg + '</li>');
 	});
   });
 </script>
