@@ -1,24 +1,17 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
-app.get('/', function(req, res){
-  res.sendfile('index.html');
+require('./index')(app);
+var session = require('./auth')(app);
+require('./socket')(http, session);
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.static('public'));
+
+var port = process.env.PORT || 3000;
+http.listen(port, function(){
+  console.log('listening on *:' + port);
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
-
-io.on('connection', function(socket){
-  socket.on('speech', function(msg){
-	io.emit('speech', msg);
-  });
-});
-
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on *:3000');
-});

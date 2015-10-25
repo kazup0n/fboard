@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"GOOGLE_CLIENT_ID": null,
+		"GOOGLE_CLIENT_SECRET": null,
+		"ROOT": "http://fboard.herokuapp.com"
+	}
+}
+
+

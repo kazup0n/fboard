@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"GOOGLE_CLIENT_ID": "134372191855-v0igbq9acnredok4u0pj89ov2og6h8bk.apps.googleusercontent.com",
+		"GOOGLE_CLIENT_SECRET": "PrYoExcMTg2sfQnXsg0NQger",
+		"ROOT": "http://fboard.heroku.com:3000"
+	}
+}
+
+
