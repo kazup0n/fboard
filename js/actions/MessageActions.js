@@ -1,16 +1,19 @@
-let messageRef  = new Firebase('https://fboard.firebaseio.com/messages');
 import  Dispatcher from '../Dispatcher.js';
+
+let messageRef  = new Firebase('https://fboard.firebaseio.com/messages');
 
 export default class MessageActions {
 	static watchMessages(){
 		messageRef.on('child_added', function(msg){
-			var synthes = new SpeechSynthesisUtterance(msg.message);
+			var synthes = new SpeechSynthesisUtterance(msg.child('message').val());
 			synthes.lang = "ja-JP";
 			synthes.volume = 5;
 			speechSynthesis.speak(synthes);
 		});
 		messageRef.on('value', function(messages){
-			Dispatcher.dispatch({actionType: 'getMessages', messages: messages});
+			let msgs = [];
+			messages.forEach(function(v){ return msgs.push(v);});
+			Dispatcher.dispatch({actionType: 'getMessages', messages: msgs});
 		});
 
 		let timestamp = new Date();
