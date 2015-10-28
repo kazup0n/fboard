@@ -100,7 +100,7 @@ var MessageActions = (function () {
 	_createClass(MessageActions, null, [{
 		key: 'watchMessages',
 		value: function watchMessages() {
-			messageRef.on('child_added', function (msg) {
+			messageRef.orderByChild('postedAt').limitToLast(1).on('child_added', function (msg) {
 				var synthes = new SpeechSynthesisUtterance(msg.child('message').val());
 				synthes.lang = "ja-JP";
 				synthes.volume = 5;

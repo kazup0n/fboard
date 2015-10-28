@@ -4,7 +4,7 @@ let messageRef  = new Firebase('https://fboard.firebaseio.com/messages');
 
 export default class MessageActions {
 	static watchMessages(){
-		messageRef.on('child_added', function(msg){
+		messageRef.orderByChild('postedAt').limitToLast(1).on('child_added', function(msg){
 			var synthes = new SpeechSynthesisUtterance(msg.child('message').val());
 			synthes.lang = "ja-JP";
 			synthes.volume = 5;
