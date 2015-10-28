@@ -15,7 +15,7 @@ export default class MessageActions {
 
 		let timestamp = new Date();
 		timestamp.setDate(timestamp.getDate()-2);
-		messageRef.endAt(timestamp.toString()).on("child_added", function(snap){
+		messageRef.orderByChild("postedAt").endAt(timestamp.getTime()/1000).on("child_added", function(snap){
 			snap.ref().remove();
 		});
 	}
@@ -23,7 +23,7 @@ export default class MessageActions {
 	static postMessage(msg){
 		messageRef.push({
 			message: msg,
-			postedAt: Date.now()
+			postedAt: Date.now()/1000
 		});
 	}
 
