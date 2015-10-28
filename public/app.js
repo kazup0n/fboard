@@ -101,13 +101,17 @@ var MessageActions = (function () {
 		key: 'watchMessages',
 		value: function watchMessages() {
 			messageRef.on('child_added', function (msg) {
-				var synthes = new SpeechSynthesisUtterance(msg.message);
+				var synthes = new SpeechSynthesisUtterance(msg.child('message').val());
 				synthes.lang = "ja-JP";
 				synthes.volume = 5;
 				speechSynthesis.speak(synthes);
 			});
 			messageRef.on('value', function (messages) {
-				_DispatcherJs2['default'].dispatch({ actionType: 'getMessages', messages: messages });
+				var msgs = [];
+				messages.forEach(function (v) {
+					return msgs.push(v);
+				});
+				_DispatcherJs2['default'].dispatch({ actionType: 'getMessages', messages: msgs });
 			});
 
 			var timestamp = new Date();
