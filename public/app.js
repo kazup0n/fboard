@@ -109,7 +109,7 @@ var MessageActions = (function () {
 			messageRef.on('value', function (messages) {
 				var msgs = [];
 				messages.forEach(function (v) {
-					return msgs.push(v);
+					return msgs.push(v.val());
 				});
 				_DispatcherJs2['default'].dispatch({ actionType: 'getMessages', messages: msgs });
 			});

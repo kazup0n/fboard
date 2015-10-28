@@ -12,7 +12,7 @@ export default class MessageActions {
 		});
 		messageRef.on('value', function(messages){
 			let msgs = [];
-			messages.forEach(function(v){ return msgs.push(v);});
+			messages.forEach(function(v){ return msgs.push(v.val());});
 			Dispatcher.dispatch({actionType: 'getMessages', messages: msgs});
 		});
 
