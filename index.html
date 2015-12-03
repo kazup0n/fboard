@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BizCon2015</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
- </head>
-  <body>
-	<div class="container-fluid">
-		<h1>fboard</h1>
-		<div id="react-container">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>BizCon2015</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="public/css/reveal.css">
+		<link rel="stylesheet" href="public/css/theme/white.css" id="theme">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<h1>fboard</h1>
+			<div id="react-container">
+			</div>
 		</div>
-	</div>
-	<script src="public/app.js"></script>
-  </body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown data-separator="\n---\n$" data-separator-vertical="\n--\n">
+					<script id="slides" type="text/template"></script>
+				</section>
+			</div>
+		</div>
+		<script src="public/lib/js/head.min.js"></script>
+		<script src="public/js/reveal.js"></script>
+		<script src="public/app.js"></script>
+	</body>
 </html>
