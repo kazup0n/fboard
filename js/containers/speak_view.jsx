@@ -1,5 +1,8 @@
 import React from 'react';
 
+import {speak}  from '../firebase';
+
+
 export default class SpeakView extends React.Component {
 
    static get propTypes(){
@@ -32,7 +35,9 @@ export default class SpeakView extends React.Component {
     }
 
     onSendClick(){
-        this.setState({text: ''});
+        speak(this.state.text).then(()=>{
+            this.setState({text: ''});
+        });
     }
 
 }

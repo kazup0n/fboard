@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import Menu from './../components/menu.jsx';
-import {isLoggedIn, logout, login}  from '../firebase';
+import {isLoggedIn, logout, login, startVoiceListening}  from '../firebase';
 
 class App extends React.Component {
 
@@ -18,6 +18,7 @@ class App extends React.Component {
      componentDidMount(){
         if(isLoggedIn()){
             this.props.actions.getSlides();
+            startVoiceListening();
         }else{
             login();
         }

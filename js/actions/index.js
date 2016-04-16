@@ -11,12 +11,6 @@ export function getSlides(){
     };
 }
 
-export function login(){
-    return (dispatch) =>{
-        Firebase.login();
-    };
-}
-
 export function addSlide(slide){
     return (dispatch) =>{
         Firebase.addSlide(slide).then(function(){

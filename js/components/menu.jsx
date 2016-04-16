@@ -24,7 +24,7 @@ export default class Menu extends React.Component {
                     <Link to="/slides" className="pure-menu-link"><i className="fa  fa-slideshare"></i></Link>
                 </li>
                 <li className="pure-menu-item">
-                    <Link to="/voice" className="pure-menu-link"><i className="fa  fa-slideshare"></i></Link>
+                    <Link to="/voice" className="pure-menu-link"><i className="fa  fa-microphone"></i></Link>
                 </li>
                 <li className="pure-menu-item">
                     <a className="pure-menu-link" onClick={this.onAuthButtonClick.bind(this)}><i className={authButtonClass}></i></a>
