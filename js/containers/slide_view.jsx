@@ -28,7 +28,9 @@ export default class SlideView extends React.Component {
         <div className="pure-u-18-24">
                 <SlideEdit slide={this.state.selectedSlide}
                     onSave={this.onSlideSave.bind(this)}
-                    onCancel={this.onSlideRevert.bind(this)} />
+                    onCancel={this.onSlideRevert.bind(this)}
+					onDelete={this.onSlideDelete.bind(this)}
+				   	/>
         </div>
         </div>);
     }
@@ -41,13 +43,18 @@ export default class SlideView extends React.Component {
         if(slide.id){
             this.props.actions.updateSlide(slide);
         }else{
-            this.props.actions.saveSlide(slide);
+            this.props.actions.addSlide(slide);
         }
     }
 
     onSlideRevert(slide){
-
     }
 
+	onSlideDelete(slide){
+		if(slide.id && confirm(`Delete ${slide.title} ?`)){
+			this.props.actions.removeSlide(slide);
+			this.setState({"selectedSlide": {}});
+		}
+	}
 
 }

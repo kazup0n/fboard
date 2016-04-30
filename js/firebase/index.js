@@ -53,7 +53,7 @@ export function updateSlide(id, slide){
 
 export function addSlide(slide){
     return new Promise(function(resolve, reject){
-        firebase.child('slide').push(slide, function(){
+        firebase.child('slides').push(slide, function(){
             resolve();
         });
     });

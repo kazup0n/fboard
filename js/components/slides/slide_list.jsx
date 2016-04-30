@@ -37,14 +37,19 @@ export default class SlideList extends React.Component {
 
 
     render(){
-        let items = _.map(this.props.slides, (item)=>{
+        let items = [<li key="addNewSlide"><a href="#" onClick={this.onAddNewItem.bind(this)}><i className="fa fa-plus-circle" aria-hidden="true">Add new slide.</i></a></li>];
+			items=items.concat(_.map(this.props.slides, (item)=>{
             return <SlideListItem key={item.id} slide={item}  onClick={this.props.onSelect.bind(this)} />;
-        });
+        }));
         return <ul>{items}</ul>;
     }
 
     onSelectItem(item){
         this.props.onSelect(item);
     }
+
+	onAddNewItem(){
+		this.props.onSelect({})
+	}
 
 }

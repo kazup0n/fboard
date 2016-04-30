@@ -8,7 +8,8 @@ export default class SlideEdit extends React.Component {
         return {
             'slide': React.PropTypes.object,
             'onSave': React.PropTypes.func,
-            'onCancel': React.PropTypes.func
+            'onCancel': React.PropTypes.func,
+			'onDelete': React.PropTypes.func
         };
     }
 
@@ -46,7 +47,7 @@ export default class SlideEdit extends React.Component {
                     キャンセル
                 </a>
                 {(()=>{
-                    return this.props.slide ? <a className="pure-button pure-button-danger">削除</a>: ''
+                    return this.props.slide ? <a onClick={this.onDeleteClick.bind(this)} className="pure-button pure-button-danger">削除</a>: ''
                 })()}
 
             </div>
@@ -72,5 +73,9 @@ export default class SlideEdit extends React.Component {
     onSaveClick(e){
         this.props.onSave(this.state.slide);
     }
+
+	onDeleteClick(e){
+		this.props.onDelete(this.state.slide);
+	}
 
 }
