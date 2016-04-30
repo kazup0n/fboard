@@ -6,13 +6,12 @@ export function isLoggedIn(){
     return firebase.getAuth() ? true: false;
 }
 
-export function login(){
+export function login(email, password){
     return new Promise(function(resolve, reject){
-        firebase.authWithOAuthPopup('google', function(error, authData){
+        firebase.authWithPassword({email: email, password: password}, function(error, authData){
             if(error){
                 reject(error);
             }else{
-                debugger;
                 resolve(authData);
                 window.location.reload();
             }
