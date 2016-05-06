@@ -21,7 +21,7 @@ export function login(email, password){
 
 export function logout(){
     firebase.unauth();
-    window.location.reload();
+    window.location = '/';
 }
 
 export function getSlides(){

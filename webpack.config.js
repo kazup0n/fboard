@@ -5,10 +5,8 @@ module.exports = {
   context: __dirname,
   entry: [
     './js/index.js',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server'
   ],
-  output: { path:  './assets/js', filename: 'bundle.js', publicPath: 'assets/js' },
+  output: { path:  './public/assets/js', filename: 'bundle.js', publicPath: 'assets/js' },
   module: {
     loaders: [
       {
@@ -31,7 +29,7 @@ module.exports = {
   },
   devServer: {
     // Document Root
-    contentBase: "./",
+    contentBase: "./public",
     // 動作ポート指定
     port: 8080,
     // hotモード有効化
@@ -40,7 +38,5 @@ module.exports = {
     historyApiFallback: true
   },
   plugins: [
-    // hotモードに必要なプラグイン
-    new webpack.HotModuleReplacementPlugin(),
   ],
 }
